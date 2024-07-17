@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize');
 
-const dbName = 'practicedb'
+const dbName = 'swift_sender_db'
 const dbUser = 'root'
 const dbPassword = ''
 
