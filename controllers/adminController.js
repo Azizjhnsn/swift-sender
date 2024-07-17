@@ -25,8 +25,6 @@ const { receiverEmail, subject, body } = req.body;
 const senderId = req.session.userId
 const senderEmail = req.session.userEmail
 
-console.log(`reciever:${receiverEmail} sender: ${senderEmail} rest:${subject, body}`);
-
 try {
     const receiver = await User.findOne({ where: { email: senderEmail }});
     if (!receiver) {
@@ -51,7 +49,6 @@ try {
 
     res.status(200).json({ message: 'Email sent and stored successfully!' });
 } catch (error) {
-    console.error('Error sending email:', error);
     res.status(500).json({ message: 'Error sending email' });
 }
 };
@@ -66,7 +63,6 @@ const sentEmails =  async (req, res) => {
       });
       res.status(200).json(sentEmails);
     } catch (error) {
-      console.error('Error retrieving sent emails:', error);
       res.status(500).json({ message: 'Error retrieving sent emails' });
     }
 };
